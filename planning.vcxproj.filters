@@ -28,6 +28,9 @@
     <Filter Include="bld">
       <UniqueIdentifier>{951c5e19-b666-4dfb-83d1-7192e76b0b02}</UniqueIdentifier>
     </Filter>
+    <Filter Include="inc\planning">
+      <UniqueIdentifier>{c59f29ee-c37d-4b90-9355-6d7c12d07f80}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="README.md" />
@@ -36,10 +39,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\string.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\planning.h">
       <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\planning\string.h">
+      <Filter>inc\planning</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

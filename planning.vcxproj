@@ -181,9 +181,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\planning.h" />
+    <ClInclude Include="inc\planning\string.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

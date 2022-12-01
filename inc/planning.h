@@ -8,4 +8,6 @@
 // recipe
 // parser
 
+#include "planning/string.h"
+
 #endif // !PLANNING_H
