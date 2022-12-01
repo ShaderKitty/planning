@@ -7,9 +7,11 @@
 namespace planning {
 
 	class matrix {
+	public:
 
 		matrix();
 		matrix(int aDimension);
+		matrix(int aDimension, float* aData);
 		matrix(const matrix& aInput);
 		matrix(matrix&& aInput) noexcept;
 		~matrix();
@@ -31,7 +33,11 @@ namespace planning {
 
 		std::vector<float> operator*(std::vector<float> aRhs) const;
 
+		matrix minor(int aI, int aJ) const;
+
 		void resize(int aDimension);
+
+		int size() const;
 
 		void clear();
 

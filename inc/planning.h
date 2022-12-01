@@ -8,11 +8,11 @@
 // recipe
 // parser
 
+#include <vector>
+
 #include "planning/string.h"
 #include "planning/item.h"
 #include "planning/recipe.h"
-
-
-//#include "planning/floatnxn.h"
+#include "planning/matrix.h"
 
 #endif // !PLANNING_H
