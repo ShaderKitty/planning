@@ -9,5 +9,10 @@
 // parser
 
 #include "planning/string.h"
+#include "planning/item.h"
+#include "planning/recipe.h"
+
+
+//#include "planning/floatnxn.h"
 
 #endif // !PLANNING_H

@@ -42,12 +42,30 @@
     <ClCompile Include="src\string.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\recipe.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\item.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\floatnxn.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\planning.h">
       <Filter>inc</Filter>
     </ClInclude>
     <ClInclude Include="inc\planning\string.h">
+      <Filter>inc\planning</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\planning\recipe.h">
+      <Filter>inc\planning</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\planning\item.h">
+      <Filter>inc\planning</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\planning\floatnxn.h">
       <Filter>inc\planning</Filter>
     </ClInclude>
   </ItemGroup>
