@@ -4,6 +4,8 @@
 
 #include <vector>
 
+#include "string.h"
+
 namespace planning {
 
 	class matrix {
@@ -12,6 +14,10 @@ namespace planning {
 		matrix();
 		matrix(int aDimension);
 		matrix(int aDimension, float* aData);
+		matrix(
+			const matrix& aE, const matrix& aF,
+			const matrix& aG, const matrix& aH
+		);
 		matrix(const matrix& aInput);
 		matrix(matrix&& aInput) noexcept;
 		~matrix();
@@ -29,9 +35,12 @@ namespace planning {
 
 		// Scalar Multiplication.
 		matrix operator*(float aRhs) const;
+		matrix operator/(float aRhs) const;
 		matrix operator*(const matrix& aRhs) const;
 
 		std::vector<float> operator*(std::vector<float> aRhs) const;
+
+		string str() const;
 
 		matrix minor(int aI, int aJ) const;
 
@@ -54,6 +63,7 @@ namespace planning {
 	float trace(const matrix& aInput);
 
 	matrix transpose(const matrix& aInput);
+	matrix adjugate(const matrix& aInput);
 	matrix invert(const matrix& aInput);
 
 }

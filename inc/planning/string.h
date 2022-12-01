@@ -1,6 +1,6 @@
 #pragma once
-#ifndef GEODESUKA_CORE_UTIL_STRING_H
-#define GEODESUKA_CORE_UTIL_STRING_H
+#ifndef PLANNING_STRING_H
+#define PLANNING_STRING_H
 
 #include <stddef.h>
 
@@ -84,4 +84,4 @@ namespace planning {
 
 }
 
-#endif // !GEODESUKA_CORE_UTIL_STRING_H
+#endif // !PLANNING_STRING_H

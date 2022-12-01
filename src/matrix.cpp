@@ -265,8 +265,21 @@ namespace planning {
 		return C;
 	}
 
+	matrix matrix::operator/(float aRhs) const {
+		//assert(this->n != aRhs.n);
+		matrix A = *this;
+		//matrix B = aRhs;
+		matrix C(this->n);
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				C(i, j) = A(i, j) / aRhs;
+			}
+		}
+		return C;
+	}
+
 	matrix matrix::operator*(const matrix& aRhs) const {
-		assert(this->n != aRhs.n);
+		assert(this->n == aRhs.n);
 		matrix A = *this;
 		matrix B = aRhs;
 		matrix C(this->n);
@@ -292,24 +305,56 @@ namespace planning {
 		return Return;
 	}
 
+	string matrix::str() const {
+		string Str;
+		for (int j = 0; j < n; j++) {
+			Str += "[";
+			for (int i = 0; i < n; i++) {
+				float Number = (*this)(i, j);
+				char NumberString[256];
+				memset(NumberString, 0x00, sizeof(NumberString));
+				sprintf(NumberString, "%.4f", Number);
+
+				if (Number >= 0.0f) {
+					Str += " ";
+				}				
+
+				Str += NumberString;
+				if (i != n - 1) {
+					Str += ",\t";
+				}
+			}
+			Str += "]\n";
+		}
+
+		return Str;
+	}
+
 	matrix matrix::minor(int aI, int aJ) const {
 		matrix Minor(this->n - 1);
 		for (int i = 0; i < Minor.size(); i++) {
 			for (int j = 0; j < Minor.size(); j++) {
-				if ((i < aI) && (j < aJ)) {
-					Minor(i, j) = (*this)(i, j);
-				}
-				else if (i < aI) {
-					Minor(i, j) = (*this)(i, j + 1);
-				}
-				else if (j < aJ) {
-					Minor(i, j) = (*this)(i + 1, j);
-				}
-				else {
+				int Decision = 0x00000000 | (((i < aI) << 1) | (j < aJ));
+				switch (Decision) {
+				default:
+					Minor(i, j) = 0.0f;
+					break;
+				case 0b00:
 					Minor(i, j) = (*this)(i + 1, j + 1);
+					break;
+				case 0b01:
+					Minor(i, j) = (*this)(i + 1, j);
+					break;
+				case 0b10:
+					Minor(i, j) = (*this)(i, j + 1);
+					break;
+				case 0b11:
+					Minor(i, j) = (*this)(i, j);
+					break;
 				}
 			}
 		}
+		std::cout << Minor.str().ptr() << std::endl;
 		return Minor;
 	}
 
@@ -421,7 +466,7 @@ namespace planning {
 	}
 	*/
 
-	// 
+	// Uses recursion to calculate.
 	float determinant(const matrix& aInput) {
 		int k = 0;
 		int n = aInput.size();
@@ -438,10 +483,44 @@ namespace planning {
 			return Total;
 		}
 		else {
-			// recursion.
 			return aInput(0, 0);
 		}
+	}
 
+	float trace(const matrix& aInput) {
+		float Total = 0.0f;
+		for (int k = 0; k < aInput.size(); k++) {
+			Total += aInput(k, k);
+		}
+		return Total;
+	}
+
+	matrix transpose(const matrix& aInput) {
+		matrix T(aInput.size());
+		for (int i = 0; i < T.size(); i++) {
+			for (int j = 0; j < T.size(); j++) {
+				T(i, j) = aInput(j, i);
+			}
+		}
+		return T;
+	}
+
+	matrix adjugate(const matrix& aInput) {
+		matrix C(aInput.size());
+		int n = C.size();
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				int Sign = (((i + j) % 2) > 0) ? -1 : +1;
+				C(i, j) = Sign * determinant(aInput.minor(i, j));
+			}
+		}
+		return C;
+	}
+
+	matrix invert(const matrix& aInput) {
+		matrix Inversion(aInput.size());
+		Inversion = (transpose(adjugate(aInput))) / determinant(aInput);
+		return Inversion;
 	}
 
 }
