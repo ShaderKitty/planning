@@ -426,12 +426,15 @@ namespace planning {
 		int n = aInput.size();
 		if (n > 1) {
 			float Total = 0.0f;
-			matrix M(n - 1);
 			for (k = 0; k < n; k++) {
-				int Sign = (((k % 2) > 0) ? -1 : +1);
-				M = aInput.minor(1, k);
-				Total += Sign * aInput(1, k) * determinant(M);
+				int Sign = (((k % 2) > 0) ? +1 : -1);
+				float a = aInput(1, k);
+				if (a != 0.0f) {
+					matrix M = aInput.minor(1, k);
+					Total += Sign * a * determinant(M);
+				}
 			}
+			return Total;
 		}
 		else {
 			// recursion.
