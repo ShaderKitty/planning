@@ -48,7 +48,7 @@
     <ClCompile Include="src\item.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\floatnxn.cpp">
+    <ClCompile Include="src\matrix.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +65,7 @@
     <ClInclude Include="inc\planning\item.h">
       <Filter>inc\planning</Filter>
     </ClInclude>
-    <ClInclude Include="inc\planning\floatnxn.h">
+    <ClInclude Include="inc\planning\matrix.h">
       <Filter>inc\planning</Filter>
     </ClInclude>
   </ItemGroup>

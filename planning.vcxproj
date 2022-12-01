@@ -72,22 +72,22 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)lib\$(Configuration)\$(PlatformShortName)\</OutDir>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(PlatformShortName)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Configuration)\$(PlatformShortName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)lib\$(Configuration)\$(PlatformShortName)\</OutDir>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(PlatformShortName)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Configuration)\$(PlatformShortName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)lib\$(Configuration)\$(PlatformShortName)\</OutDir>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(PlatformShortName)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Configuration)\$(PlatformShortName)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>$(ProjectDir)lib\$(Configuration)\$(PlatformShortName)\</OutDir>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(PlatformShortName)\</OutDir>
     <IntDir>$(ProjectDir)obj\$(Configuration)\$(PlatformShortName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -181,14 +181,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="src\floatnxn.cpp" />
+    <ClCompile Include="src\matrix.cpp" />
     <ClCompile Include="src\item.cpp" />
     <ClCompile Include="src\recipe.cpp" />
     <ClCompile Include="src\string.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\planning.h" />
-    <ClInclude Include="inc\planning\floatnxn.h" />
+    <ClInclude Include="inc\planning\matrix.h" />
     <ClInclude Include="inc\planning\item.h" />
     <ClInclude Include="inc\planning\recipe.h" />
     <ClInclude Include="inc\planning\string.h" />
