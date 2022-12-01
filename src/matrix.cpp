@@ -421,6 +421,7 @@ namespace planning {
 	}
 	*/
 
+	// 
 	float determinant(const matrix& aInput) {
 		int k = 0;
 		int n = aInput.size();
